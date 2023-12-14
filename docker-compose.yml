@@ -1,0 +1,29 @@
+version: '3'
+services:
+
+  web:
+    stdin_open: true
+    tty: true
+    container_name: vendor-web
+    build: .
+    ports:
+      - "8000:8000"
+    command: > 
+      sh -c "python ./manage.py migrate &&
+        python ./manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - ./.:/app
+    restart: always
+    env_file:
+      - ./.env
+    depends_on:
+      - db
+
+  db:
+    image: postgres:13
+    restart: on-failure
+
+    environment:
+      POSTGRES_PASSWORD: "admin"
+      POSTGRES_USER: "vendor_management"
+      POSTGRES_DB: "vendor_db"
