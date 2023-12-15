@@ -51,3 +51,4 @@ vine==5.1.0
 virtualenv==20.25.0
 wcwidth==0.2.12
 zipp==3.17.0
+psycopg2-binary==2.9.9
