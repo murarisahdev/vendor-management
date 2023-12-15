@@ -38,7 +38,7 @@ Develop a Vendor Management System using Django and Django REST Framework. This 
     ```bash
     DELETE /api/vendors/{vendor_id}/
 
-**Vendor Profile Management**
+**Purchase Order Management**
  - Create a purchase order:
     ```bash
     POST /api/purchase-order/
